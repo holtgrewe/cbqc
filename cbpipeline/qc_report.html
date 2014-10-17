@@ -1,0 +1,92 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  
+  <head>
+    <title>QC Report</title>
+
+    <style type="text/css">
+      td.num { text-align: right; }
+      dt { font-weight: bolder; }
+
+      .green { color: green; font-weight: bolder; }
+      .yellow { color: orange; font-weight: bolder; }
+      .red { color: red; font-weight: bolder; }
+    </style>
+
+  </head>
+  
+  <body>
+    <h1>QC Report</h1>
+
+    <h2 id="key-metrics">Key Metrics</h2>
+
+    <table>
+      <tr>
+	<th colspan="2">Read Alignment</th>
+      </tr>
+      <tr>
+	<td>mean coverage</td>
+	<td class="num  {{ color('mean_coverage', sta.meanCoverage) }}">{{ "%.2f"|format(sta.meanCoverage) }}</td>
+      </tr>
+      <tr>
+	<td>10x target coverage</td>
+	<td class="num {{ color('target_coverage_10x', sta.fractionWithCov[10]) }}">{{ "%.1f"|format(sta.fractionWithCov[10] * 100) }}</td>
+      </tr>
+      <tr>
+	<td>20x target coverage</td>
+	<td class="num {{ color('target_coverage_20x', sta.fractionWithCov[20]) }}">{{ "%.1f"|format(sta.fractionWithCov[20] * 100) }}</td>
+      </tr>
+      <!-- alignment error? -->
+    </table>
+
+    <h2 id="picard-bam-stats">Picard BAM Statistics</h2>
+
+    <dl>
+      <dt>target regions BED file</dt>
+      <dd>{{ sta.bed }}</dd>
+
+      <dt>number of reads</dt>
+      <dd>{{ sta.reads }}</dd>
+
+      <dt>number of aligned reads</dt>
+      <dd>{{ sta.readsAligned }}</dd>
+
+      <dt>number of unaligned reads</dt>
+      <dd>{{ sta.readsUnaligned }}</dd>
+
+      <dt>number of duplicates</dt>
+      <dd>{{ sta.duplicates }}</dd>
+
+      <dt>duplication rate</dt>
+      <dd>{{ sta.duplicationRate }}</dd>
+
+      <dt>number of mapped nucleotides</dt>
+      <dd>{{ sta.mappedNucleotides }}</dd>
+
+      <dt>total target region length</dt>
+      <dd>{{ sta.totalBedLength }}</dd>
+
+      <dt>mean coverage</dt>
+      <dd>{{ 1.0 * sta.mappedNucleotides / sta.totalBedLength }}</dd>
+    </dl>
+
+    <table>
+      <thead>
+	<tr>
+	  <th>coverage >=</th>
+	  <th>percentage of intervals [%]</th>
+	</tr>
+      </thead>
+      <body>
+	{% for key, value in sta.fractionWithCov|dictsort %}
+	<tr>
+	  <td class="num">{{ key }}x</td>
+	  <td class="num">{{ value * 100 }}</td>
+	</tr>
+	{% endfor %}
+      </body>
+    </table>
+  </body>
+</html>
