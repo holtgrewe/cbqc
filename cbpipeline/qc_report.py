@@ -238,8 +238,8 @@ class VcfStatsGenerator(object):
             self._countDbSnp(ref, fmt, info, alts, call)
             self._countHomHet(ref, fmt, alts, call)
             self._countVariantKind(ref, fmt, alts, call)
-            self._countSense(ref, fmt, alts, call)
             self._countTrans(ref, fmt, alts, call)
+            self._countJannovar(info)
         return self.vcf_stats
 
     def _getGenotypes(self, ref, fmt, alts, calls):
@@ -285,9 +285,14 @@ class VcfStatsGenerator(object):
             else:
                 pass  # substitute more than one char, WARN?
 
-    def _countSense(self, ref, fmt, alts, calls):
-        """Update num_missense, num_sense."""
-        # TODO(holtgrew): Add when annotation is there
+    def _countJannovar(self, info):
+        """Update counters based on Jannovar annotations."""
+        for field in info:
+            if field.startswith('EFFECT'):
+                key, values = field.split('=', 1)
+                for v in values.split(','):
+                    self.vcf_stats.num_annos.setdefault(v, 0)
+                    self.vcf_stats.num_annos[v] += 1
 
     def _countTrans(self, ref, fmt, alts, calls):
         """Update transitions, transversions."""
@@ -302,7 +307,6 @@ class VcfStatsGenerator(object):
             self.vcf_stats.transitions += int(var in TRANS)
             self.vcf_stats.transversions += int(var not in TRANS)
 
-
 class VcfStats(object):
     """Statistics on a VCF file.
 
@@ -314,8 +318,7 @@ class VcfStats(object):
     @ivar heterozygous     number of heterozygous variants
     @ivar homozygous       number of homozygous variants
     @ivar ins_count        number of called insertions
-    @ivar num_missense     number of missense variants
-    @ivar num_sense        number of sense variants
+    @ivar num_annos        number of annotated 
     @ivar snv_count        number of SNVs
     @ivar transitions      number of transitions
     @ivar transversions     number of transversions
@@ -331,8 +334,7 @@ class VcfStats(object):
         self.heterozygous = 0
         self.homozygous = 0
         self.ins_count = 0
-        self.num_missense = 0
-        self.num_sense = 0
+        self.num_annos = {}
         self.snv_count = 0
         self.transitions = 0
         self.transversions = 0

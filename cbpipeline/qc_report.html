@@ -7,7 +7,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     <title>NGS Quality Control Report</title>
 
     <!-- Note that we are definining everything inline by purpose,
-	 we want a standalone HTML document. -->
+         we want a standalone HTML document. -->
     <style type="text/css">{% include 'normalize.css' %}</style>
 
     <style type="text/css">
@@ -78,52 +78,52 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     <table class="details">
       {% for fastqc in fastqcs %}
       <tr>
-	<th class="subheader" colspan="3">{{ fastqc.file_name|basename }}</th>
+        <th class="subheader" colspan="3">{{ fastqc.file_name|basename }}</th>
       </tr>
       <tr>
-	<th>base quality scores</th>
-	<td class="word {{color_pass(fastqc.summary['per_base_sequence_quality'])}}">{{ fastqc.summary['per_base_sequence_quality'] }}</td>
-	<td class="{{color_pass(fastqc.summary['per_base_sequence_quality'])}}">&#x25cf;</td>
+        <th>base quality scores</th>
+        <td class="word {{color_pass(fastqc.summary['per_base_sequence_quality'])}}">{{ fastqc.summary['per_base_sequence_quality'] }}</td>
+        <td class="{{color_pass(fastqc.summary['per_base_sequence_quality'])}}">&#x25cf;</td>
       </tr>
       <tr>
-	<th>sequence quality scores</th>
-	<td class="word {{color_pass(fastqc.summary['per_sequence_quality_scores'])}}">{{ fastqc.summary['per_sequence_quality_scores'] }}</td>
-	<td class="{{color_pass(fastqc.summary['per_sequence_quality_scores'])}}">&#x25cf;</td>
+        <th>sequence quality scores</th>
+        <td class="word {{color_pass(fastqc.summary['per_sequence_quality_scores'])}}">{{ fastqc.summary['per_sequence_quality_scores'] }}</td>
+        <td class="{{color_pass(fastqc.summary['per_sequence_quality_scores'])}}">&#x25cf;</td>
       </tr>
       <tr>
-	<th>sequence content</th>
-	<td class="word {{color_pass(fastqc.summary['per_base_sequence_content'])}}">{{ fastqc.summary['per_base_sequence_content'] }}</td>
-	<td class="{{color_pass(fastqc.summary['per_base_sequence_content'])}}">&#x25cf;</td>
+        <th>sequence content</th>
+        <td class="word {{color_pass(fastqc.summary['per_base_sequence_content'])}}">{{ fastqc.summary['per_base_sequence_content'] }}</td>
+        <td class="{{color_pass(fastqc.summary['per_base_sequence_content'])}}">&#x25cf;</td>
       </tr>
       <tr>
-	<th>non-called (N) content</th>
-	<td class="word {{color_pass(fastqc.summary['per_base_n_content'])}}">{{ fastqc.summary['per_base_n_content'] }}</td>
-	<td class="{{color_pass(fastqc.summary['per_base_n_content'])}}">&#x25cf;</td>
+        <th>non-called (N) content</th>
+        <td class="word {{color_pass(fastqc.summary['per_base_n_content'])}}">{{ fastqc.summary['per_base_n_content'] }}</td>
+        <td class="{{color_pass(fastqc.summary['per_base_n_content'])}}">&#x25cf;</td>
       </tr>
       <tr>
-	<th>sequence lengths</th>
-	<td class="word {{color_pass(fastqc.summary['sequence_length_distribution'])}}">{{ fastqc.summary['sequence_length_distribution'] }}</td>
-	<td class="{{color_pass(fastqc.summary['sequence_length_distribution'])}}">&#x25cf;</td>
+        <th>sequence lengths</th>
+        <td class="word {{color_pass(fastqc.summary['sequence_length_distribution'])}}">{{ fastqc.summary['sequence_length_distribution'] }}</td>
+        <td class="{{color_pass(fastqc.summary['sequence_length_distribution'])}}">&#x25cf;</td>
       </tr>
       <tr>
-	<th>sequence duplication</th>
-	<td class="word {{color_pass(fastqc.summary['sequence_duplication_levels'])}}">{{ fastqc.summary['sequence_duplication_levels'] }}</td>
-	<td class="{{color_pass(fastqc.summary['sequence_duplication_levels'])}}">&#x25cf;</td>
+        <th>sequence duplication</th>
+        <td class="word {{color_pass(fastqc.summary['sequence_duplication_levels'])}}">{{ fastqc.summary['sequence_duplication_levels'] }}</td>
+        <td class="{{color_pass(fastqc.summary['sequence_duplication_levels'])}}">&#x25cf;</td>
       </tr>
       <tr>
-	<th>overrepresented sequences</th>
-	<td class="word {{color_pass(fastqc.summary['overrepresented_sequences'])}}">{{ fastqc.summary['overrepresented_sequences'] }}</td>
-	<td class="{{color_pass(fastqc.summary['overrepresented_sequences'])}}">&#x25cf;</td>
+        <th>overrepresented sequences</th>
+        <td class="word {{color_pass(fastqc.summary['overrepresented_sequences'])}}">{{ fastqc.summary['overrepresented_sequences'] }}</td>
+        <td class="{{color_pass(fastqc.summary['overrepresented_sequences'])}}">&#x25cf;</td>
       </tr>
       <tr>
-	<th>adapter content</th>
-	<td class="word {{color_pass(fastqc.summary['adapter_content'])}}">{{ fastqc.summary['adapter_content'] }}</td>
-	<td class="{{color_pass(fastqc.summary['adapter_content'])}}">&#x25cf;</td>
+        <th>adapter content</th>
+        <td class="word {{color_pass(fastqc.summary['adapter_content'])}}">{{ fastqc.summary['adapter_content'] }}</td>
+        <td class="{{color_pass(fastqc.summary['adapter_content'])}}">&#x25cf;</td>
       </tr>
       <tr>
-	<th>k-mer content</th>
-	<td class="word {{color_pass(fastqc.summary['kmer_content'])}}">{{ fastqc.summary['kmer_content'] }}</td>
-	<td class="{{color_pass(fastqc.summary['kmer_content'])}}">&#x25cf;</td>
+        <th>k-mer content</th>
+        <td class="word {{color_pass(fastqc.summary['kmer_content'])}}">{{ fastqc.summary['kmer_content'] }}</td>
+        <td class="{{color_pass(fastqc.summary['kmer_content'])}}">&#x25cf;</td>
       </tr>
       {% endfor %}
     </table>
@@ -132,38 +132,38 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 
     <table class="details">
       <tr>
-	<th class="subheader" colspan="3">{{ sta.file_name|basename }}</th>
+        <th class="subheader" colspan="3">{{ sta.file_name|basename }}</th>
       </tr>
       <tr>
-	<th>BED file</th>
-	<td>{{ sta.bed|basename }}</td>
-	<td></td>
+        <th>BED file</th>
+        <td>{{ sta.bed|basename }}</td>
+        <td></td>
       </tr>
       <tr>
-	<th>mean coverage</th>
-	<td class="num  {{ color_thresh('mean_coverage', sta.meanCoverage) }}">{{ "%.2f"|format(sta.meanCoverage) }} x</td>
-	<td class="{{ color_thresh('mean_coverage', sta.meanCoverage) }}">&#x25cf;</td>
+        <th>mean coverage</th>
+        <td class="num  {{ color_thresh('mean_coverage', sta.meanCoverage) }}">{{ "%.2f"|format(sta.meanCoverage) }} x</td>
+        <td class="{{ color_thresh('mean_coverage', sta.meanCoverage) }}">&#x25cf;</td>
       </tr>
       <tr>
-	<th>10x target coverage</th>
-	<td class="num {{ color_thresh('target_coverage_10x', sta.fractionWithCov[10]) }}">{{ "%.1f"|format(sta.fractionWithCov[10] * 100) }} %</td>
-	<td class="{{ color_thresh('target_coverage_10x', sta.fractionWithCov[10]) }}">&#x25cf;</td>
+        <th>10x target coverage</th>
+        <td class="num {{ color_thresh('target_coverage_10x', sta.fractionWithCov[10]) }}">{{ "%.1f"|format(sta.fractionWithCov[10] * 100) }} %</td>
+        <td class="{{ color_thresh('target_coverage_10x', sta.fractionWithCov[10]) }}">&#x25cf;</td>
       </tr>
       <tr>
-	<th>20x target coverage</th>
-	<td class="num {{ color_thresh('target_coverage_20x', sta.fractionWithCov[20]) }}">{{ "%.1f"|format(sta.fractionWithCov[20] * 100) }} %</td>
-	<td class="{{ color_thresh('target_coverage_20x', sta.fractionWithCov[20]) }}">&#x25cf;</td>
+        <th>20x target coverage</th>
+        <td class="num {{ color_thresh('target_coverage_20x', sta.fractionWithCov[20]) }}">{{ "%.1f"|format(sta.fractionWithCov[20] * 100) }} %</td>
+        <td class="{{ color_thresh('target_coverage_20x', sta.fractionWithCov[20]) }}">&#x25cf;</td>
       </tr>
       
       <tr>
-	<th>total reads</th>
-	<td class="num">{{ sta.reads|format_number }}</td>
-	<td></td>
+        <th>total reads</th>
+        <td class="num">{{ sta.reads|format_number }}</td>
+        <td></td>
       </tr>
       <tr>
-	<th>aligned reads</th>
-	<td class="num {{ color_thresh('aligned_reads', sta.alignedRate) }}">{{ "%.1f"|format(100.0 * sta.alignedRate) }} %</td>
-	<td class="{{ color_thresh('aligned_reads', sta.alignedRate) }}">&#x25cf;</td>
+        <th>aligned reads</th>
+        <td class="num {{ color_thresh('aligned_reads', sta.alignedRate) }}">{{ "%.1f"|format(100.0 * sta.alignedRate) }} %</td>
+        <td class="{{ color_thresh('aligned_reads', sta.alignedRate) }}">&#x25cf;</td>
       </tr>
       <!-- alignment error? -->
     </table>
@@ -172,64 +172,79 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 
     <table class="details">
       <tr>
-	<th class="subheader" colspan="3">{{ vcf_stats.file_name }}</th>
+        <th class="subheader" colspan="3">{{ vcf_stats.file_name }}</th>
       </tr>
       <tr>
-	<th>dbSNP</th>
-	<td class="num">{{ vcf_stats.dbsnp_count }}</td>
+        <th>dbSNP</th>
+        <td class="num">{{ vcf_stats.dbsnp_count }}</td>
       </tr>
       <tr>
-	<th>dbSNP ratio</th>
-	<td class="num">{{ "%.1f"|format(100 * vcf_stats.dbsnp_count / (vcf_stats.dbsnp_count + vcf_stats.no_dbsnp_count)) }}</td>
+        <th>dbSNP ratio</th>
+        <td class="num">{{ "%.1f"|format(100 * vcf_stats.dbsnp_count / (vcf_stats.dbsnp_count + vcf_stats.no_dbsnp_count)) }}</td>
       </tr>
       <tr>
-	<th>deletions</th>
-	<td class="num">{{ vcf_stats.del_count|format_number }}</td>
+        <th>deletions</th>
+        <td class="num">{{ vcf_stats.del_count|format_number }}</td>
       </tr>
       <tr>
-	<th>insertions</th>
-	<td class="num">{{ vcf_stats.ins_count|format_number }}</td>
+        <th>insertions</th>
+        <td class="num">{{ vcf_stats.ins_count|format_number }}</td>
       </tr>
       <tr>
-	<th>SNVs rate (per Kbp)</th>
-	<td class="num">{{ "%.4f"|format(1000.0 * vcf_stats.snv_count / sta.totalBedLength) }}</td>
+        <th>SNVs rate (per Kbp)</th>
+        <td class="num">{{ "%.4f"|format(1000.0 * vcf_stats.snv_count / sta.totalBedLength) }}</td>
       </tr>
       <tr>
-	<th>heterozygous calls</th>
-	<td class="num">{{ vcf_stats.heterozygous|format_number }}</td>
+        <th>heterozygous calls</th>
+        <td class="num">{{ vcf_stats.heterozygous|format_number }}</td>
       </tr>
       <tr>
-	<th>homozygous calls</th>
-	<td class="num">{{ vcf_stats.homozygous|format_number }}</td>
+        <th>homozygous calls</th>
+        <td class="num">{{ vcf_stats.homozygous|format_number }}</td>
       </tr>
       <tr>
-	<th>het/hom ratio</th>
-	<td class="num">{{ "%.4f"|format(1.0 * vcf_stats.heterozygous / vcf_stats.homozygous) }}</td>
+        <th>het/hom ratio</th>
+        <td class="num">{{ "%.4f"|format(1.0 * vcf_stats.heterozygous / vcf_stats.homozygous) }}</td>
       </tr>
       <tr>
-	<th>sense variants</th>
-	<td class="num">{{ vcf_stats.num_sense|format_number }}</td>
+        <th>transitions</th>
+        <td class="num">{{ vcf_stats.transitions|format_number }}</td>
       </tr>
       <tr>
-	<th>missense variants</th>
-	<td class="num">{{ vcf_stats.num_missense|format_number }}</td>
+        <th>transversions</th>
+        <td class="num">{{ vcf_stats.transversions|format_number }}</td>
       </tr>
       <tr>
-	<th>transitions</th>
-	<td class="num">{{ vcf_stats.transitions|format_number }}</td>
+        <th>Ts/Tv ratio</th>
+        {% if vcf_stats.transversions %}
+        <td class="num">{{ "%.2f"|format(1.0 * vcf_stats.transitions/vcf_stats.transversions) }}</td>
+        {% else %}
+        <td class="num">N/A</td>
+        {% endif %}
+        <td></td>
       </tr>
       <tr>
-	<th>transversions</th>
-	<td class="num">{{ vcf_stats.transversions|format_number }}</td>
+        <th colspan="3">Jannovar Annotations</th>
       </tr>
       <tr>
-	<th>Ts/Tv ratio</th>
-	{% if vcf_stats.transversions %}
-	<td class="num">{{ "%.2f"|format(1.0 * vcf_stats.transitions/vcf_stats.transversions) }}</td>
-	{% else %}
-	<td class="num">N/A</td>
-	{% endif %}
-	<td></td>
+        <th>missense</th>
+        <td class="num">{{ vcf_stats.num_annos.get('MISSENSE', 0)|format_number }}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>start loss</th>
+        <td class="num">{{ vcf_stats.num_annos.get('START_LOSS', 0)|format_number }}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>stop gain</th>
+        <td class="num">{{ vcf_stats.num_annos.get('STOPGAIN', 0)|format_number }}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>stop loss</th>
+        <td class="num">{{ vcf_stats.num_annos.get('STOPLOSS', 0)|format_number }}</td>
+        <td></td>
       </tr>
     </table>
 
@@ -268,18 +283,18 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 
     <table>
       <thead>
-	<tr>
-	  <th>coverage >=</th>
-	  <th>percentage of intervals [%]</th>
-	</tr>
+        <tr>
+          <th>coverage >=</th>
+          <th>percentage of intervals [%]</th>
+        </tr>
       </thead>
       <body>
-	{% for key, value in sta.fractionWithCov|dictsort %}
-	<tr class="{{ loop.cycle('odd', 'even') }}">
-	  <td class="num">{{ key }} x</td>
-	  <td class="num">{{ "%.2f"|format(value * 100) }}</td>
-	</tr>
-	{% endfor %}
+        {% for key, value in sta.fractionWithCov|dictsort %}
+        <tr class="{{ loop.cycle('odd', 'even') }}">
+          <td class="num">{{ key }} x</td>
+          <td class="num">{{ "%.2f"|format(value * 100) }}</td>
+        </tr>
+        {% endfor %}
       </body>
     </table>
   </body>
