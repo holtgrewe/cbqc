@@ -10,7 +10,7 @@ requires = []
 
 setup(
     name='cbpipeline',
-    version='0.1.0',
+    version='0.1.1',
     url='http://github.com/holtgrewe/cbqc',
     download_url='http://github.com/holtgrewe/cbqc',
     license='MIT',

@@ -51,7 +51,7 @@ python -m cbpipeline.qc_report \
            --sta-file ${IN_DIR}/cov/${ID}_exom.sta \
            --out-html ${TMPDIR}/qcreport.html \
            ${fastqc_args} \
-           --vcf-file ${IN_DIR}/vcf/${ID}.ra.rc.gt.CCDS.vcf
+           --vcf-file ${IN_DIR}/vcf/${ID}.ra.rc.gt.jv.CCDS.vcf
 
 # ---------------------------------------------------------------------------
 # Convert QC Report to PDF

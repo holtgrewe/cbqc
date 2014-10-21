@@ -438,6 +438,7 @@ def renderReport(args, traffic_lights, sta, fastqcs, vcf_stats):
                                    color_pass=traffic_lights.colorPassFunc(),
                                    color_thresh=traffic_lights.colorThreshFunc(),
                                    black_and_white=args.black_and_white,
+                                   version=pkg_resources.require('cbpipeline')[0].version
                                ))
 
 
